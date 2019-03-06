@@ -1,6 +1,11 @@
 **Partify**
 
 *Demo at the bottom*
+**Contributors**
+* Kenan Rustamov
+* Elijah Kajinic
+* Alex Thorpe
+* Willis Larson
 
 **Description:**
 
