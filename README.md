@@ -3,10 +3,10 @@
 *Demo at the bottom*
 
 **Contributors**
-* Kenan Rustamov
-* Elijah Kajinic
-* Alex Thorpe
-* Willis Larson
+* Kenan Rustamov @KenanRustamov
+* Elijah Kajinic @ELK75
+* Alex Thorpe @athorpe71
+* Willis Larson @ductapemobie
 
 **Description:**
 
