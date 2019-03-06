@@ -1,6 +1,7 @@
 **Partify**
 
 *Demo at the bottom*
+
 **Contributors**
 * Kenan Rustamov
 * Elijah Kajinic
@@ -17,14 +18,14 @@ We always have our friends over, but there's always ongoing debate on who gets t
 
 **Soon to Come:**
 
-1. We are currently working on creating a hosted website where that anyone will be able to access.
-1. Also working on creating playlists that are more accurate in terms of taste
-1. Adding optionality to add preferences to the playlist such as a playlist for a party, group music exploration, car ride...etc
+* We are currently working on creating a hosted website where that anyone will be able to access.
+* Also working on creating playlists that are more accurate in terms of taste
+* Adding optionality to add preferences to the playlist such as a playlist for a party, group music exploration, car ride...etc
 
 **How to Get the Most Out of Partify:**
 
-1. Populate your account with multiple public playlists that match your music taste
-1. Choose the danceability that you would like on our application
+* Populate your account with multiple public playlists that match your music taste
+* Choose the danceability that you would like on our application
 
 **Setup Directions**
 There are many things that have not been tweaked with the application.  As such, there are a few changes needed to run the application on your local host.
