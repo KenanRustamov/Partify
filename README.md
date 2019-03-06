@@ -1,4 +1,4 @@
-#Partify
+**Partify**
 
 *Demo at the bottom*
 
@@ -35,4 +35,4 @@ There are many things that have not been tweaked with the application.  As such,
 
 **Demonstration**
 
-![](PartifyPlaylist.gif)
+![Alt Text](https://github.com/KenanRustamov/Partify/blob/master/PartifyPlaythrough.gif)
