@@ -35,4 +35,4 @@ There are many things that have not been tweaked with the application.  As such,
 
 **Demonstration**
 
-https://github.com/KenanRustamov/Partify/blob/master/PartifyPlaythrough.gif
+![](PartifyPlaylist.gif)
