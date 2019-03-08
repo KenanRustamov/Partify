@@ -30,6 +30,9 @@ We always have our friends over, but there's always ongoing debate on who gets t
 **Setup Directions**
 There are many things that have not been tweaked with the application.  As such, there are a few changes needed to run the application on your local host.
 
+1. pip install django on command prompt, if it does not recognize the command, download pip online
+1. pip install pillow
+1. pip install virtualenvwrapper-win
 1. First, create a file named keys.txt inside the "MainApp" folder with your spotify client_ID on the first line and Secret_ID on the second line and change the absolute path on views.py file on line 24 to open("*Absolute File Path to keys.txt*")
 1. Next, change the paths in settings.py on lines 71, 74, 141, and 145, with the absolute paths for SpartifyTemps, MainAppTemps,  MainApp\Static\MainApp, and MainApp\media\MainApp
 
