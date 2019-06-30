@@ -1,47 +1,68 @@
-**Partify**
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-*Demo at the bottom*
+## Available Scripts
 
-**Contributors**
-* Kenan Rustamov @KenanRustamov
-* Elijah Kajinic @ELK75
-* Alex Thorpe @athorpe71
-* Willis Larson @ductapemobie
+In the project directory, you can run:
 
-**Description:**
+### `npm start`
 
-Partify is a web application that allows you to final settle disputes over music at a get together or outing.  All you have to do is input the spotify usernames into our web application and it will create a playlist that is tailored to all of your playlists.
+Runs the app in the development mode.<br>
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-**Inspiration:**
+The page will reload if you make edits.<br>
+You will also see any lint errors in the console.
 
-We always have our friends over, but there's always ongoing debate on who gets to chose the songs to play. We decided to create an app to take people's music tastes and create a playlist for them that combines their interests.
+### `npm test`
 
-**Soon to Come:**
+Launches the test runner in the interactive watch mode.<br>
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-* We are currently working on creating a hosted website where that anyone will be able to access.
-* Also working on creating playlists that are more accurate in terms of taste
-* Adding optionality to add preferences to the playlist such as a playlist for a party, group music exploration, car ride...etc
+### `npm run build`
 
-**How to Get the Most Out of Partify:**
+Builds the app for production to the `build` folder.<br>
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
-* Populate your account with multiple public playlists that match your music taste
-* Choose the danceability that you would like on our application
+The build is minified and the filenames include the hashes.<br>
+Your app is ready to be deployed!
 
-**Setup Directions**
-There are many things that have not been tweaked with the application.  As such, there are a few changes needed to run the application on your local host.
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-1. pip install django on command prompt, if it does not recognize the command, download pip online
-1. pip install pillow
-1. pip install virtualenvwrapper-win
-1. First, create a file named keys.txt inside the "MainApp" folder with your spotify client_ID on the first line and Secret_ID on the second line and change the absolute path on views.py file on line 24 to open("*Absolute File Path to keys.txt*")
-1. Next, change the paths in settings.py on lines 71, 74, 141, and 145, with the absolute paths for SpartifyTemps, MainAppTemps,  MainApp\Static\MainApp, and MainApp\media\MainApp
+### `npm run eject`
 
-**Running Directions**
+**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-1. Navigate to Partify Folder on Terminal
-1. Run with Python manage.py runserver 1414
-1. Go to URL http://127.0.0.1:1414/MainApp/ on any browser
+If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-**Demonstration**
+Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-![Alt Text](https://github.com/KenanRustamov/Partify/blob/master/PartifyPlaythrough.gif)
+You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+
+## Learn More
+
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+
+To learn React, check out the [React documentation](https://reactjs.org/).
+
+### Code Splitting
+
+This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+
+### Analyzing the Bundle Size
+
+This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+
+### Making a Progressive Web App
+
+This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+
+### Advanced Configuration
+
+This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+
+### Deployment
+
+This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+
+### `npm run build` fails to minify
+
+This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
