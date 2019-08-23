@@ -1,12 +1,15 @@
 import React from 'react';
 import logo from './logo.svg';
-import Button from "react-bootstrap/Button"
+import Button from "react-bootstrap/Button";
+import Header from "./Header";
+import Footer from "./Footer";
 import './App.css';
 
-function App() {
+const App = () => {
   return (
     <div className="App">
-      <header className="App-header">
+      <Header></Header>
+      <body className="App-body">
         <React.Fragment>
           <Button>Yes</Button>
         </React.Fragment>
@@ -22,7 +25,8 @@ function App() {
         >
           Learn React
         </a>
-      </header>
+      </body>
+      <Footer></Footer>
       
     </div>
     
