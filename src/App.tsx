@@ -1,36 +1,52 @@
-import React from 'react';
-import logo from './logo.svg';
-import Button from "react-bootstrap/Button";
-import Header from "./Header";
+import React, { useState } from "react";
+import Navigation from './components/Navigation';
+import "./App.css";
+import InputForm from './components/InputForm';
 import Footer from "./Footer";
+import UsernameForm from './components/UsernameForm';
 import './App.css';
 
-const App = () => {
+
+function App() {
+
+  const [playlistName, setPlaylistName] = useState('');
+  const [username, setUsername] = useState('');
+
+  const handleUserData = ({playlistName, username}: any) => {
+    setPlaylistName(playlistName);
+    setUsername(username);
+  }
+
+  const userDataProvided = () => {
+    return (playlistName !== '' && username !== '')
+  }
+
+  const createSubHeader = () => {
+    const subHeaderText =  (userDataProvided() ?
+      `Making playlist ${playlistName} for ${username}` :
+      'Make Collaborative Spotify Playlists Easier Than Ever.');
+    return <h2 className="title subtitle pt-3">{subHeaderText}</h2>
+  }
+
+  const createForm = () => {
+    return userDataProvided() ? <UsernameForm/> : <InputForm handleUserData={handleUserData}/>
+  }
+
+
   return (
     <div className="App">
-      <Header></Header>
-      <body className="App-body">
-        <React.Fragment>
-          <Button>Yes</Button>
-        </React.Fragment>
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </body>
-      <Footer></Footer>
-      
+      <Navigation />
+      <div className="container">
+        <h1 className="title pt-4 text-bg">Partify</h1>
+        {createSubHeader()}
+      </div>
+
+      <div id="input" className="container">
+        {createForm()}
+      </div>
+    <Footer></Footer>
     </div>
-    
-  );
+      )
 }
 
 export default App;
