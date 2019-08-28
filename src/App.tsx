@@ -39,7 +39,7 @@ function App() {
   }
 
   const userDataProvided = () => {
-    return (playlistName !== '' && username !== '')
+    return (playlistName !== '')
   }
 
   const createSubHeader = () => {
