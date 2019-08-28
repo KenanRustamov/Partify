@@ -28,3 +28,22 @@
     transform: rotate(360deg);
   }
 }
+
+.spotifyButton{
+  width: 100px;
+  display: inline-block;
+  background-color: rgb(29, 185, 84);
+  color: rgb(255, 255, 255) !important;
+  min-width: 160px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-align: center;
+  border-radius: 30px !important;
+  padding: 17px 35px;
+  margin: 20px 0px 70px;
+}
+
+.buttonWrapper :hover {
+  background-color: rgb(30, 215, 96) !important;
+}

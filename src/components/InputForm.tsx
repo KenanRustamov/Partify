@@ -7,8 +7,8 @@ const InputForm = ({handleUserData}:any) => {
   const [playlistName, setPlaylistName] = useState('');
   const [username, setUsername] = useState('');
 
-  const handleSubmit = (e: any) => {
-    e.preventDefault();
+  const handleSubmit = (event: any) => {
+    event.preventDefault();
     handleUserData({playlistName, username})
     setPlaylistName('');
     setUsername('');
@@ -23,9 +23,7 @@ const InputForm = ({handleUserData}:any) => {
       </div>
 
       <div className="row justify-content-center">
-        <Form.Group className="pt-5 color-white col-md-8 text-md">
-          <Form.Label className="font-weight-lt">Enter Your Username</Form.Label>
-          <Form.Control type="text" placeholder="Username" value={username} onChange={(e:any) => setUsername(e.target.value)} required/>
+        <Form.Group className="color-white col-md-8 text-md">
             <div className="center">
               <Button type="submit" className="btn btn-primary btn-block margin-top-sm">
                 Submit
