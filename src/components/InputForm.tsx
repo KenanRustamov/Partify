@@ -6,6 +6,7 @@ const InputForm = ({handleUserData}:any) => {
 
   const [playlistName, setPlaylistName] = useState('');
   const [username, setUsername] = useState('');
+  const [displayPlayListForm, setDisplayPlaylistForm] = useState(true);
 
   const handleSubmit = (event: any) => {
     event.preventDefault();
@@ -21,7 +22,6 @@ const InputForm = ({handleUserData}:any) => {
           <Form.Control type="text" placeholder="Playlist Name" value={playlistName} onChange={(e:any) => setPlaylistName(e.target.value)} required/>
         </Form.Group>
       </div>
-
       <div className="row justify-content-center">
         <Form.Group className="color-white col-md-8 text-md">
             <div className="center">

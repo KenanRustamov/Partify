@@ -19,14 +19,15 @@ function App() {
   const scopes: string[] = [
     "user-read-email"
   ]
-
+  
   useEffect(() =>{
     if(window.location.hash.includes("access_token")) {
       setDisplaySpotifyLogin(false);
-      setToken(window.location.hash.split("&")[0].split("=")[1]);
-      
+    const urlParams = new URLSearchParams(window.location.hash);
+    const accessToken = urlParams.get('access_token');
+    setToken(window.location.hash.split("&")[0].split("=")[1]);
   }},[])
-  console.log(token);
+
   const handleUserData = ({playlistName, username}: any) => {
     setPlaylistName(playlistName);
     setUsername(username);
@@ -46,7 +47,6 @@ function App() {
   const createForm = () => {
     return userDataProvided() ? <UsernameForm/> : <InputForm handleUserData={handleUserData}/>
   }
-  console.log(displaySpotifyLogin);
 
   return (
     displaySpotifyLogin ? (
@@ -66,7 +66,6 @@ function App() {
         <h1 className="title pt-4 text-bg">Partify</h1>
         {createSubHeader()}
       </div>
-
       <div id="input" className="container">
         {createForm()}
       </div>
