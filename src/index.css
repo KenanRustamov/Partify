@@ -32,6 +32,10 @@ code {
   margin-top: 1.8em;
 }
 
+.margin-top-md {
+  margin-top: 2.5em;
+}
+
 .color-white {
   color: white;
 }
@@ -40,10 +44,22 @@ code {
   font-size: 1.2em;
 }
 
+.text-lg {
+  font-size: 2em;
+}
+
+.margin-left-sm {
+  margin-left: 0.8em;
+}
+
 .title {
   color: white;
   font-weight: 100;
   text-align: center;
+}
+
+.text-thicc {
+  font-weight: 400;
 }
 
 .brand {

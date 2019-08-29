@@ -1,0 +1,12 @@
+.profile {
+  height: 150px;
+  width: 150px;
+  border-radius: 50%;
+}
+
+.display-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
