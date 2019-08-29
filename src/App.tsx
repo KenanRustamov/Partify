@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import Navigation from './components/Navigation';
 import "./App.css";
 import InputForm from './components/InputForm';
-import Footer from "./Footer";
 import UsernameForm from './components/UsernameForm';
 import './App.css';
 import Button from 'react-bootstrap/Button';
@@ -96,7 +95,6 @@ function App() {
           <div id="input" className="container">
             {createForm()}
           </div>
-          <Footer></Footer>
         </div>
       ))
 }

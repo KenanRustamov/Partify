@@ -1,0 +1,7 @@
+.mr-auto a svg {
+    fill: rgba(0,0,0,.5);
+}
+
+.mr-auto a :hover {
+    fill: rgba(0,0,0,.7);
+}
