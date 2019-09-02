@@ -45,9 +45,8 @@ function App() {
     }
   }, [token]);
 
-  const handleUserData = ({ playlistName, username }: any) => {
+  const handleUserData = ({playlistName}: any) => {
     setPlaylistName(playlistName);
-    setUsername(username);
   }
 
   const userDataProvided = () => {
@@ -69,7 +68,7 @@ function App() {
   }
 
   const createForm = () => {
-    return userDataProvided() ? <UsernameForm token={token}/> : <InputForm handleUserData={handleUserData} />
+    return userDataProvided() ? <UsernameForm token={token} currentUser={currentUser.id}/> : <InputForm handleUserData={handleUserData} />
   }
 
   return (

@@ -1,8 +1,15 @@
 .profile {
-  height: 150px;
-  width: 150px;
+  height: 100px;
+  width: 100px;
   border-radius: 50%;
   border: 2px solid white;
+}
+
+@media (min-width: 450px) {
+  .profile {
+    height: 150px;
+    width: 150px;
+  }
 }
 
 .display-wrapper {

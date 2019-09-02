@@ -2,20 +2,23 @@ import React, { useState } from 'react';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import './UsernameForm.css';
+import defaultImage from '../img/default-user-profile.png';
 
-const UserNameForm = ({token} : any) => {
+const UserNameForm = ({token, currentUser} : any) => {
 
   const [friendList, setFriendList] = useState<string[]>([]);
   const [friend, setFriend] = useState<string>('');
   const [friendData, setFriendData] = useState<any>([]);
+  const [error, setError] = useState<string>('');
 
   const handleSubmit = async(e:any) => {
-    e.preventDefault();
-    setFriendList(friendList.concat(friend));
-    setFriend('');
-
+    e.preventDefault();    
     const data = await getUserData(friend);
-    setFriendData([...friendData, data])
+    if (isUserValid(data)) {
+      setFriendList(friendList.concat(friend));
+      setFriendData([...friendData, data]);
+      setFriend('');
+    }
   }
 
   const getUserData = async(user_id : any) => {
@@ -31,13 +34,30 @@ const UserNameForm = ({token} : any) => {
     return data;
   }
 
+  const isUserValid = (userData : any) => {
+    if ('error' in userData) {
+      setError(userData.error.message);
+      return false;
+    }
+    const {id} = userData;
+    if (friendList.includes(id) || currentUser === id) {
+      setError('Friend already added to playlist');
+      return false;
+    }
+    setError('');
+    return true;
+  }
+
   const friendsDisplay = () => {
     const display = [];
     for (const user of friendData) {
+
+      let img = !user.images.length ? defaultImage : user.images[0].url;
+
       display.push(
-        <div className="col-6 col-md-3 col-lg-2 center margin-top-sm">
-          <img src={user.images[0].url} className="profile-sm"></img>
-          <h1 className="title text-sm">{user.display_name}</h1>
+        <div className="col-6 col-md-4 col-lg-3 center margin-top-sm" key={user.id}>
+          <img src={img} className="profile-sm"></img>
+          <h1 className="title text-sm margin-top-xs">{user.display_name}</h1>
         </div>
       )
     }
@@ -50,14 +70,20 @@ const UserNameForm = ({token} : any) => {
     )
   }
 
+  const getFormLabel = () => {
+    return (error ? 
+      <Form.Label className="font-weight-lt">{error}</Form.Label> :
+      <Form.Label className="font-weight-lt">Enter Your Friends</Form.Label>
+    );
+  }
+
   return (
     <div>
       <Form onSubmit={handleSubmit}>
         <div className="row justify-content-center">
           <Form.Group className="padding-top-md color-white col-md-8">
-            <Form.Label className="font-weight-lt">Enter Your Friends</Form.Label>
+            {getFormLabel()}
             <Form.Control type="text" placeholder="Friend's Spotify Username" onChange={(e:any) => setFriend(e.target.value)} value={friend} required />
-
             <div className="row center">
               <div className="col-md-6">
                 <Button type="submit" className="btn btn-primary btn-block margin-top-sm">
@@ -70,9 +96,9 @@ const UserNameForm = ({token} : any) => {
                 </Button>
               </div>
             </div>
+            {friendsDisplay()}
           </Form.Group>
         </div>
-      {friendsDisplay()}
       </Form>
     </div>
   );
