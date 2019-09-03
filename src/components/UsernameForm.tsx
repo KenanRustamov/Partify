@@ -81,7 +81,7 @@ const UserNameForm = ({token, currentUser} : any) => {
     <div>
       <Form onSubmit={handleSubmit}>
         <div className="row justify-content-center">
-          <Form.Group className="padding-top-md color-white col-md-8">
+          <Form.Group className="padding-top-md color-black col-md-8">
             {getFormLabel()}
             <Form.Control type="text" placeholder="Friend's Spotify Username" onChange={(e:any) => setFriend(e.target.value)} value={friend} required />
             <div className="row center">

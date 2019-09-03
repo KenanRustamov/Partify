@@ -3,6 +3,7 @@ import './UserDisplay.css';
 import defaultImage from '../img/default-user-profile.png';
 
 const UserDisplay = ({user} : any) => {
+
   let img = !user.images.length ? defaultImage : user.images[0].url;
   return (
     <div className="display-wrapper">

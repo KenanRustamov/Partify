@@ -1,3 +1,6 @@
+.App {
+  height: 100%;
+}
 
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
@@ -32,8 +35,8 @@
 .spotifyButton{
   width: 100px;
   display: inline-block;
-  background-color: rgb(29, 185, 84);
-  color: rgb(255, 255, 255) !important;
+  background-color: black;
+  color: #ffc107 !important;
   min-width: 250px;
   font-weight: 700;
   letter-spacing: 2px;
@@ -45,5 +48,5 @@
 }
 
 .buttonWrapper :hover {
-  background-color: rgb(30, 215, 96) !important;
+  transform: scale(1.05) perspective(1px)
 }

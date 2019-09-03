@@ -11,13 +11,25 @@ body {
   -moz-osx-font-smoothing: grayscale;
 
   height: 100%;
-  background: #0F7C96;
-  /* background: linear-gradient(to bottom left, #0F7C96, #58594D); */
+}
+
+#root {
+  height: 100%;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+  monospace;
+}
+
+.btn {
+  background: black;
+}
+
+.main-img {
+  height: 100%;
+  background: url(img/background.jpg) no-repeat center center fixed;
+  background-size: cover;
 }
 
 .padding-top-md {
@@ -44,6 +56,10 @@ code {
   color: white;
 }
 
+.color-black {
+  color: black;
+}
+
 .text-md {
   font-size: 1.2em;
 }
@@ -63,13 +79,14 @@ code {
 }
 
 .title {
-  color: white;
+  color: black;
   font-weight: 100;
   text-align: center;
 }
 
 .text-thicc {
   font-weight: 400;
+  color: #ffc107;
 }
 
 .brand {
