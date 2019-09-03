@@ -1,5 +1,6 @@
 .mr-auto a svg {
     fill: rgba(0,0,0,.5);
+    transition: fill .4s ease-in-out;
 }
 
 .navbar {
@@ -17,6 +18,14 @@
 .mr-auto a :hover {
     fill: #fee060;
     transition: fill .4s ease-in-out;
+}
+
+.navbar-light .navbar-nav .nav-link {
+    transition: color .4s ease;
+    transition-property: color;
+    transition-duration: .4s;
+    transition-timing-function: ease;
+    transition-delay: 0s;
 }
 
 .navbar-light :hover {
