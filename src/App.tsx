@@ -6,6 +6,7 @@ import UsernameForm from "./components/UsernameForm";
 import "./App.css";
 import UserDisplay from "./components/UserDisplay";
 import Login from "./components/Login";
+import SpotifyAPIWrapper from './SpotifyAPIWrapper';
 
 function App() {
   //window.location.replace("https://accounts.spotify.com/authorize?client_id=acdd403ce33c48ea83e77b0f86a0d40f&redirect_uri=http://localhost:3000/callback/&scope=user-read-private%20user-read-email&response_type=token&state=123")
@@ -13,8 +14,7 @@ function App() {
   const [username, setUsername] = useState("");
   const [token, setToken] = useState("");
   const [currentUser, setCurrentUser] = useState();
-
-
+  const [spotifyAPIWrapper, setSpotifyAPIWrapper] = useState();
 
   const getUserData = async () => {
     let data = await fetch("https://api.spotify.com/v1/me", {
@@ -45,9 +45,20 @@ function App() {
 
   useEffect(() => {
     if (token) {
+      setSpotifyAPIWrapper(new SpotifyAPIWrapper(token));
       getUserData().then(response => setCurrentUser(response));
     }
   }, [token]);
+
+  useEffect(() => {
+    if (spotifyAPIWrapper) {
+      // console.log(spotifyAPIWrapper.getRandomSample('sparkling165', 10));
+      spotifyAPIWrapper.getRandomSample('sparkling165', 10).then((res : any) => {
+        console.log(res);
+      });
+      // a.then(r => console.log(r));
+    }
+  }, [spotifyAPIWrapper]);
 
   const handleUserData = ({ playlistName }: any) => {
     setPlaylistName(playlistName);
