@@ -89,8 +89,10 @@ function App() {
   return (
     <div className="App">
       <div className={userSignedIn ? "secondary-img" : "main-img"}>
-        <Navigation />
-        <div className="container">
+        {currentUser && userSignedIn ? 
+        <Navigation /> : 
+        null}
+          <div className="container">
           <h1 className="title pt-4 text-bg">Partify</h1>
           {createSubHeader()}
           <div className="center margin-top-md">

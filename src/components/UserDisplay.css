@@ -2,7 +2,7 @@
   height: 100px;
   width: 100px;
   border-radius: 50%;
-  border: 2px solid black;
+  border: 2px solid white;
 }
 
 @media (min-width: 450px) {

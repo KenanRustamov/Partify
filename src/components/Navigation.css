@@ -10,6 +10,20 @@
 .mr-auto {
     text-align: center;
 }
+
+.mr-auto a {
+    transition: fill .4s ease-in-out;
+}
 .mr-auto a :hover {
     fill: #fee060;
+    transition: fill .4s ease-in-out;
+}
+
+.navbar-light :hover {
+    color: #fee060 !important;
+    transition: color .4s ease;
+    transition-property: color;
+    transition-duration: .4s;
+    transition-timing-function: ease;
+    transition-delay: 0s;
 }
