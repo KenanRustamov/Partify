@@ -9,7 +9,9 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-
+  background: linear-gradient(135deg, rgb(243, 107, 55) 0%, rgb(243, 107, 55) 23%,rgb(244, 133, 60) 23%, rgb(244, 133, 60) 27%,rgb(245, 159, 64) 27%, rgb(245, 159, 64) 73%,rgb(245, 186, 69) 73%, rgb(245, 186, 69) 74%,rgb(246, 212, 73) 74%, rgb(246, 212, 73) 78%,rgb(247, 238, 78) 78%, rgb(247, 238, 78) 100%);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
   height: 100%;
 }
 
@@ -23,10 +25,13 @@ code {
 }
 
 .btn {
-  background: black;
+  background: #f36b37;
+  color:white;
+  border-color: transparent;
 }
 
 .main-img {
+  padding-top: 4rem;
   height: 100%;
   background: url(img/background.jpg) no-repeat center center fixed;
   background-size: cover;
@@ -79,14 +84,14 @@ code {
 }
 
 .title {
-  color: black;
+  color: white;
   font-weight: 100;
   text-align: center;
 }
 
 .text-thicc {
   font-weight: 400;
-  color: #ffc107;
+  color: #ffe167;
 }
 
 .brand {
@@ -107,6 +112,10 @@ code {
 
 .text-bg {
   font-size: 3.2em;
+}
+
+.secondary-img {
+  padding-top: 4rem;
 }
 
 .center {

@@ -1,9 +1,15 @@
 .mr-auto a svg {
     fill: rgba(0,0,0,.5);
 }
+
+.navbar {
+    position: fixed;
+    width: 100%;
+    top: 0px;
+}
 .mr-auto {
     text-align: center;
 }
 .mr-auto a :hover {
-    fill: rgba(0,0,0,.7);
+    fill: #fee060;
 }
