@@ -47,7 +47,7 @@ export default class SpotifyAPIWrapper {
     const song_query = this.songs.join(',');
     console.log(song_query);
 
-    let data = await fetch(`https://api.spotify.com/v1/recommendations?seed_tracks=${song_query}`, {
+    let data = await fetch(`https://api.spotify.com/v1/recommendations?seed_tracks=${song_query}&market=US`, {
       method: "GET", // *GET, POST, PUT, DELETE, etc.
       // mode: 'cors', // no-cors, cors, *same-origin
       // credentials: 'same-origin', // include, *same-origin, omit
@@ -73,17 +73,19 @@ export default class SpotifyAPIWrapper {
       for (const playlist of playlists) {
         await this.getPlaylistTracks(playlist.id).then((track_data : any) => {
           for (const track of track_data.items) {
-            user_tracks.push(track.track.uri.slice(14, -1));
+            console.log(track.track.id)
+            user_tracks.push(track.track.id);
           }
         });
       }
       shuffle(user_tracks);
-      this.songs = this.songs.concat(user_tracks.slice(0, sample_size));
-      return user_tracks.slice(0, sample_size);
+      this.songs = this.songs.concat(user_tracks.slice(0, 1));
+      return user_tracks.slice(0, 1);
     }));
   }
 
   async createPlaylist(user_id : string) {
-    this.getRecommendations('sparkling165');
+    const recommendedSong = await this.getRecommendations('sparkling165');
+    console.log(recommendedSong);
   }
 }
