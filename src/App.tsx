@@ -7,6 +7,7 @@ import "./App.css";
 import UserDisplay from "./components/UserDisplay";
 import Login from "./components/Login";
 import SpotifyAPIWrapper from './SpotifyAPIWrapper';
+import { async } from "q";
 
 function App() {
   //window.location.replace("https://accounts.spotify.com/authorize?client_id=acdd403ce33c48ea83e77b0f86a0d40f&redirect_uri=http://localhost:3000/callback/&scope=user-read-private%20user-read-email&response_type=token&state=123")
@@ -53,9 +54,14 @@ function App() {
   useEffect(() => {
     if (spotifyAPIWrapper) {
       // console.log(spotifyAPIWrapper.getRandomSample('sparkling165', 10));
-      spotifyAPIWrapper.getRandomSample('sparkling165', 10).then((res : any) => {
-        console.log(res);
-      });
+      // const test = await spotifyAPIWrapper.getRandomSample('sparkling165', 10));
+      // spotifyAPIWrapper.getRandomSample('sparkling165', 10).then((res : any) => {
+      //   console.log(res);
+      // });
+      spotifyAPIWrapper.getRandomSample('sparkling165', 10).then((tracks : any) => console.log(tracks));
+      // yeees().then(res => {
+        // console.log(res);
+      // })
       // a.then(r => console.log(r));
     }
   }, [spotifyAPIWrapper]);
