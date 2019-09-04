@@ -4,7 +4,7 @@ import Button from 'react-bootstrap/Button';
 import './UsernameForm.css';
 import defaultImage from '../img/default-user-profile.png';
 
-const UserNameForm = ({token, currentUser} : any) => {
+const UserNameForm = ({token, currentUser, spotifyAPIWrapper} : any) => {
 
   const [friendList, setFriendList] = useState<string[]>([]);
   const [friend, setFriend] = useState<string>('');
@@ -12,7 +12,11 @@ const UserNameForm = ({token, currentUser} : any) => {
   const [error, setError] = useState<string>('');
 
   const handleSubmit = async(e:any) => {
-    e.preventDefault();    
+    e.preventDefault();
+    if (!friend) {
+      setError('Please fill out input field');
+      return;
+    }
     const data = await getUserData(friend);
     if (isUserValid(data)) {
       setFriendList(friendList.concat(friend));
@@ -77,13 +81,22 @@ const UserNameForm = ({token, currentUser} : any) => {
     );
   }
 
+  const createPlaylist = async(e: any) => {
+    e.preventDefault();
+    for (const username of friendList) {
+      await spotifyAPIWrapper.addUserSongs(username);
+    }
+
+    spotifyAPIWrapper.createPlaylist();
+  }
+
   return (
     <div>
       <Form onSubmit={handleSubmit}>
         <div className="row justify-content-center">
           <Form.Group className="padding-top-md color-black col-md-8">
             {getFormLabel()}
-            <Form.Control type="text" placeholder="Friend's Spotify Username" onChange={(e:any) => setFriend(e.target.value)} value={friend} required />
+            <Form.Control type="text" placeholder="Friend's Spotify Username" onChange={(e:any) => setFriend(e.target.value)} value={friend} />
             <div className="row center">
               <div className="col-md-6">
                 <Button type="submit" className="btn btn-primary btn-block margin-top-sm">
@@ -91,7 +104,7 @@ const UserNameForm = ({token, currentUser} : any) => {
                 </Button>
               </div>
               <div className="col-md-6">
-                <Button type="submit" className="btn btn-success btn-block margin-top-sm">
+                <Button className="btn btn-success btn-block margin-top-sm" onClick={(e: any) => createPlaylist(e)}>
                   Create Playlist
                 </Button>
               </div>
