@@ -50,11 +50,11 @@ function App() {
     }
   }, [token]);
 
-  useEffect(() => {
-    if (spotifyAPIWrapper && currentUser) {
-      spotifyAPIWrapper.addUserSongs(currentUser.id, 10);
-    }
-  }, [currentUser]);
+  // useEffect(() => {
+  //   if (spotifyAPIWrapper && currentUser) {
+  //     spotifyAPIWrapper.addUserSongs(currentUser.id, 5);
+  //   }
+  // }, [currentUser]);
 
   const handleUserData = ({ playlistName }: any) => {
     setPlaylistName(playlistName);
@@ -85,7 +85,7 @@ function App() {
 
   const createForm = () => {
     return userDataProvided() ? (
-      <UsernameForm token={token} currentUser={currentUser.id} spotifyAPIWrapper={spotifyAPIWrapper} />
+      <UsernameForm token={token} currentUser={currentUser.id} spotifyAPIWrapper={spotifyAPIWrapper} playlistName = {playlistName}/>
     ) : (
       <InputForm handleUserData={handleUserData} />
     );

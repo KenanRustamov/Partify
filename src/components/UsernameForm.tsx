@@ -4,7 +4,7 @@ import Button from 'react-bootstrap/Button';
 import './UsernameForm.css';
 import defaultImage from '../img/default-user-profile.png';
 
-const UserNameForm = ({token, currentUser, spotifyAPIWrapper} : any) => {
+const UserNameForm = ({token, currentUser, spotifyAPIWrapper, playlistName} : any) => {
 
   const [friendList, setFriendList] = useState<string[]>([]);
   const [friend, setFriend] = useState<string>('');
@@ -84,10 +84,11 @@ const UserNameForm = ({token, currentUser, spotifyAPIWrapper} : any) => {
   const createPlaylist = async(e: any) => {
     e.preventDefault();
     for (const username of friendList) {
-      await spotifyAPIWrapper.addUserSongs(username);
+      await spotifyAPIWrapper.addUserSongs(username, 5);
     }
+    await spotifyAPIWrapper.addUserSongs(currentUser, 5)
 
-    spotifyAPIWrapper.createPlaylist();
+    spotifyAPIWrapper.createPlaylist(currentUser, playlistName);
   }
 
   return (
