@@ -3,6 +3,7 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import './UsernameForm.css';
 import defaultImage from '../img/default-user-profile.png';
+import Load from './Load';
 
 const UserNameForm = ({token, currentUser, spotifyAPIWrapper, playlistName} : any) => {
 
@@ -10,6 +11,8 @@ const UserNameForm = ({token, currentUser, spotifyAPIWrapper, playlistName} : an
   const [friend, setFriend] = useState<string>('');
   const [friendData, setFriendData] = useState<any>([]);
   const [error, setError] = useState<string>('');
+  const [creatingPlaylist, setCreatingPlaylist] = useState<boolean>(false);
+  const [playlistMade, setPlaylistMade] = useState<boolean>(false);
 
   const handleSubmit = async(e:any) => {
     e.preventDefault();
@@ -61,7 +64,7 @@ const UserNameForm = ({token, currentUser, spotifyAPIWrapper, playlistName} : an
       display.push(
         <div className="col-6 col-md-4 col-lg-3 center margin-top-sm" key={user.id}>
           <img src={img} className="profile-sm"></img>
-          <h1 className="title text-sm margin-top-xs">{user.display_name}</h1>
+          <h1 className="title text-sm margin-top-xs color-white">{user.display_name}</h1>
         </div>
       )
     }
@@ -77,41 +80,52 @@ const UserNameForm = ({token, currentUser, spotifyAPIWrapper, playlistName} : an
   const getFormLabel = () => {
     return (error ? 
       <Form.Label className="font-weight-lt">{error}</Form.Label> :
-      <Form.Label className="font-weight-lt">Enter Your Friends</Form.Label>
+      <Form.Label className="font-weight-lt color-white">Enter Your Friends</Form.Label>
     );
   }
 
   const createPlaylist = async(e: any) => {
     e.preventDefault();
+    setCreatingPlaylist(true);
     for (const username of friendList) {
-      await spotifyAPIWrapper.addUserSongs(username, 5);
+      await spotifyAPIWrapper.addUserSongs(username);
     }
-    await spotifyAPIWrapper.addUserSongs(currentUser, 5)
-
-    spotifyAPIWrapper.createPlaylist(currentUser, playlistName);
+    await spotifyAPIWrapper.addUserSongs(currentUser);
+    await spotifyAPIWrapper.createPlaylist(currentUser, playlistName);
+    setPlaylistMade(true);
   }
 
   return (
     <div>
       <Form onSubmit={handleSubmit}>
         <div className="row justify-content-center">
-          <Form.Group className="padding-top-md color-black col-md-8">
-            {getFormLabel()}
-            <Form.Control type="text" placeholder="Friend's Spotify Username" onChange={(e:any) => setFriend(e.target.value)} value={friend} />
-            <div className="row center">
-              <div className="col-md-6">
-                <Button type="submit" className="btn btn-primary btn-block margin-top-sm">
-                  Add Another
-                </Button>
+          {!creatingPlaylist ? 
+            <Form.Group className="padding-top-md color-black col-md-8">
+              {getFormLabel()}
+              <Form.Control type="text" placeholder="Friend's Spotify Username" onChange={(e:any) => setFriend(e.target.value)} value={friend} />
+              <div className="row center">
+                <div className="col-md-6">
+                  <Button type="submit" className="btn btn-primary btn-block margin-top-sm">
+                    Add Another
+                  </Button>
+                </div>
+                <div className="col-md-6">
+                  <Button className="btn btn-success btn-block margin-top-sm" onClick={(e: any) => createPlaylist(e)}>
+                    Create Playlist
+                  </Button>
+                </div>
               </div>
-              <div className="col-md-6">
-                <Button className="btn btn-success btn-block margin-top-sm" onClick={(e: any) => createPlaylist(e)}>
-                  Create Playlist
-                </Button>
-              </div>
+              {friendsDisplay()}
+            </Form.Group>
+          : !playlistMade ? <Load></Load> : <div>
+            <div className="title color-white padding-top-sm">
+              Congrats! Your Playlist {playlistName} Has Been Made.
             </div>
-            {friendsDisplay()}
-          </Form.Group>
+            <div className="title color-white">
+              Check Your Spotify For Your New Playlist.
+            </div>
+            
+          </div>}
         </div>
       </Form>
     </div>

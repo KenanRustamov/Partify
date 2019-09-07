@@ -6,7 +6,7 @@ export default function Login() {
   const clientId: string = "acdd403ce33c48ea83e77b0f86a0d40f";
   const redirectUri: string = "http://localhost:3000/";
   const scopes: string[] = [
-    "user-read-email"
+    "user-read-email, playlist-modify-public"
   ]
 
   return (

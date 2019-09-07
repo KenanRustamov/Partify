@@ -9,8 +9,8 @@ const UserDisplay = ({user} : any) => {
     <div className="display-wrapper">
       <img src={img} className="profile"></img>
       <div className="margin-left-sm">
-        <h1 className="title text-lg">Making playlist for:</h1>
-        <h1 className="title text-thicc">{user.display_name}</h1>
+        <h1 className="title text-lg color-white">Making playlist for:</h1>
+        <h1 className="title text-thicc color-white">{user.display_name}</h1>
       </div>
     </div>
   )

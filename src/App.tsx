@@ -50,12 +50,6 @@ function App() {
     }
   }, [token]);
 
-  // useEffect(() => {
-  //   if (spotifyAPIWrapper && currentUser) {
-  //     spotifyAPIWrapper.addUserSongs(currentUser.id, 5);
-  //   }
-  // }, [currentUser]);
-
   const handleUserData = ({ playlistName }: any) => {
     setPlaylistName(playlistName);
   };
@@ -68,15 +62,15 @@ function App() {
     if (!userDataProvided()) {
       return (
         <div>
-          <h2 className="title subtitle pt-3">
-            Make Collaborative Spotify Playlists
+          <h2 className={userSignedIn ? "title subtitle pt-3 color-white" : "title subtitle pt-3 color-black"}>
+            Make A Spotify Playlists For Your Party
           </h2>
-          <h2 className="title subtitle pt-3">Easier Than Ever.</h2>
+          <h2 className={userSignedIn ? "title subtitle pt-3 color-white" : "title subtitle pt-3 color-black"}>Easier Than Ever.</h2>
         </div>
       );
     } else {
       return (
-        <h2 className="title subtitle pt-3">
+        <h2 className="title subtitle pt-3 color-white">
           Making playlist <span className="text-thicc">{playlistName}</span>
         </h2>
       );
@@ -100,7 +94,7 @@ function App() {
         <Navigation /> : 
         null}
           <div className="container">
-          <h1 className="title pt-4 text-bg">Partify</h1>
+          <h1 className={userSignedIn ? "title pt-4 text-bg color-white" : "title pt-4 text-bg color-black"}>Partify</h1>
           {createSubHeader()}
           <div className="center margin-top-md">
             {currentUser && userSignedIn ? (
