@@ -7,6 +7,8 @@ import "./App.css";
 import UserDisplay from "./components/UserDisplay";
 import Login from "./components/Login";
 import SpotifyAPIWrapper from './SpotifyAPIWrapper';
+import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
+import About from "./About"
 
 function App() {
   //window.location.replace("https://accounts.spotify.com/authorize?client_id=acdd403ce33c48ea83e77b0f86a0d40f&redirect_uri=http://localhost:3000/callback/&scope=user-read-private%20user-read-email&response_type=token&state=123")
@@ -29,7 +31,6 @@ function App() {
     });
     data = await data.json();
     return data;
-    // parses JSON response into native JavaScript objects
   };
 
   useEffect(() => {
@@ -61,12 +62,12 @@ function App() {
   const createSubHeader = () => {
     if (!userDataProvided()) {
       return (
-        <div>
+        userSignedIn ? null : (<div>
           <h2 className={userSignedIn ? "title subtitle pt-3 color-white" : "title subtitle pt-3 color-black"}>
             Make A Spotify Playlists For Your Party
           </h2>
           <h2 className={userSignedIn ? "title subtitle pt-3 color-white" : "title subtitle pt-3 color-black"}>Easier Than Ever.</h2>
-        </div>
+        </div>)
       );
     } else {
       return (
@@ -85,32 +86,42 @@ function App() {
     );
   };
   
+  const Home = () => {
+    return (
+    <div className={userSignedIn ? "top-padding" : "main-img"}>
+      <div className="container">
+        <h1 className={userSignedIn ? "title pt-4 text-bg color-white" : "title pt-4 text-bg color-black"}>Partify</h1>
+        {createSubHeader()}
+        <div className="center margin-top-md">
+          {currentUser && userSignedIn ? (
+            <UserDisplay user={currentUser}></UserDisplay>
+          ) : (
+            <Login></Login>
+          )}
+        </div>
+      </div>
+      {currentUser && userSignedIn ? (
+        <div id="input" className="container">
+          {createForm()}
+        </div>
+      ) : null}
+      </div>
+    )
+  }
   const userSignedIn = window.location.href.includes("access_token");
 
   return (
-    <div className="App">
-      <div className={userSignedIn ? "secondary-img" : "main-img"}>
+    <Router>
+      <div className="App">
+        <Switch>
+            <Route path="/" exact component= {Home} />
+            <Route path="/about" exact component = {About}/>
+        </Switch>
         {currentUser && userSignedIn ? 
-        <Navigation /> : 
-        null}
-          <div className="container">
-          <h1 className={userSignedIn ? "title pt-4 text-bg color-white" : "title pt-4 text-bg color-black"}>Partify</h1>
-          {createSubHeader()}
-          <div className="center margin-top-md">
-            {currentUser && userSignedIn ? (
-              <UserDisplay user={currentUser}></UserDisplay>
-            ) : (
-              <Login></Login>
-            )}
-          </div>
-        </div>
-        {currentUser && userSignedIn ? (
-          <div id="input" className="container">
-            {createForm()}
-          </div>
-        ) : null}
+          <Navigation /> : 
+          null}
       </div>
-    </div>
+    </Router>
   );
 }
 

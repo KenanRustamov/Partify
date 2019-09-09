@@ -56,7 +56,7 @@ const UserNameForm = ({token, currentUser, spotifyAPIWrapper, playlistName} : an
   }
 
   const friendsDisplay = () => {
-    const display = [];
+    const display: any[] = [];
     for (const user of friendData) {
 
       let img = !user.images.length ? defaultImage : user.images[0].url;
@@ -77,11 +77,15 @@ const UserNameForm = ({token, currentUser, spotifyAPIWrapper, playlistName} : an
     )
   }
 
-  const getFormLabel = () => {
+  const getFormError = () => {
     return (error ? 
-      <Form.Label className="font-weight-lt">{error}</Form.Label> :
-      <Form.Label className="font-weight-lt color-white">Enter Your Friends</Form.Label>
-    );
+    (<Form.Text className="text-muted form-error">
+      {error}
+    </Form.Text>) : 
+    (<Form.Text className="text-muted form-error">
+      {  }
+    </Form.Text>)
+    )
   }
 
   const createPlaylist = async(e: any) => {
@@ -101,11 +105,12 @@ const UserNameForm = ({token, currentUser, spotifyAPIWrapper, playlistName} : an
         <div className="row justify-content-center">
           {!creatingPlaylist ? 
             <Form.Group className="padding-top-md color-black col-md-8">
-              {getFormLabel()}
+              {<Form.Label className="font-weight-lt color-white">Enter Your Friends</Form.Label>}
               <Form.Control type="text" placeholder="Friend's Spotify Username" onChange={(e:any) => setFriend(e.target.value)} value={friend} />
+              {getFormError()}
               <div className="row center">
                 <div className="col-md-6">
-                  <Button type="submit" className="btn btn-primary btn-block margin-top-sm">
+                  <Button type="submit" className="btn btn-primary btn-block margin-top-md">
                     Add Another
                   </Button>
                 </div>

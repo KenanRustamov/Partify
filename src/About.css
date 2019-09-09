@@ -1,0 +1,16 @@
+.aboutWrapper {
+    padding-top: 6rem;
+    padding-left: 4rem;
+    padding-right: 4rem;
+    padding-bottom: 4rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.card-deck{
+    max-width: 70rem;
+}
+
+.card-body :nth-child(2){
+    color:gray;
+}

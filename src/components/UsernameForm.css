@@ -4,3 +4,8 @@
   border-radius: 50%;
   border: 1px solid white;
 }
+
+.form-error {
+  position: absolute;
+  color: red !important;
+}
