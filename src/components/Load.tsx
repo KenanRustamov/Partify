@@ -4,10 +4,10 @@ import "./Load.css";
 export default function Load() {
   return (
     <div className="center padding-top-md">
-      <div className="title color-white">
-        Hold Tight! Your Playlist is Being Created.
+      <div className="title">
+        Hold tight! Your playlist is being created.
       </div>
-      <div className="lds-roller padding-top-md">
+      <div className="lds-roller padding-top-md color-main">
         <div></div>
         <div></div>
         <div></div>

@@ -30,6 +30,11 @@ code {
   border-color: transparent;
 }
 
+.btn-primary:hover {
+  background: #f3581b;
+  border-color: #f3581b;
+}
+
 .main-img {
   padding-top: 4rem;
   height: 100%;
@@ -67,6 +72,10 @@ code {
 
 .color-black {
   color: black;
+}
+
+.color-main {
+  color: rgb(245, 159, 64)
 }
 
 .text-md {
@@ -127,4 +136,19 @@ code {
 
 .font-weight-lt {
   font-weight: 100;
+}
+
+.form-container {
+  background: white;
+  padding: 20px;
+  border-radius: 20px;
+  margin-top: 2rem;
+  margin-bottom: 3rem;
+  padding-bottom: 2rem;
+  min-height: 60vh;
+}
+
+.sub-header {
+  width: 45%;
+  margin: 0 auto;
 }

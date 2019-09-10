@@ -64,7 +64,7 @@ const UserNameForm = ({token, currentUser, spotifyAPIWrapper, playlistName} : an
       display.push(
         <div className="col-6 col-md-4 col-lg-3 center margin-top-sm" key={user.id}>
           <img src={img} className="profile-sm"></img>
-          <h1 className="title text-sm margin-top-xs color-white">{user.display_name}</h1>
+          <h1 className="title text-sm margin-top-xs color-black">{user.display_name}</h1>
         </div>
       )
     }
@@ -105,7 +105,7 @@ const UserNameForm = ({token, currentUser, spotifyAPIWrapper, playlistName} : an
         <div className="row justify-content-center">
           {!creatingPlaylist ? 
             <Form.Group className="padding-top-md color-black col-md-8">
-              {<Form.Label className="font-weight-lt color-white">Enter Your Friends</Form.Label>}
+              {<Form.Label className="font-weight-lt color-black">Enter Your Friends</Form.Label>}
               <Form.Control type="text" placeholder="Friend's Spotify Username" onChange={(e:any) => setFriend(e.target.value)} value={friend} />
               {getFormError()}
               <div className="row center">
@@ -115,7 +115,7 @@ const UserNameForm = ({token, currentUser, spotifyAPIWrapper, playlistName} : an
                   </Button>
                 </div>
                 <div className="col-md-6">
-                  <Button className="btn btn-success btn-block margin-top-sm" onClick={(e: any) => createPlaylist(e)}>
+                  <Button className="btn btn-success btn-block margin-top-md" onClick={(e: any) => createPlaylist(e)}>
                     Create Playlist
                   </Button>
                 </div>
@@ -123,10 +123,10 @@ const UserNameForm = ({token, currentUser, spotifyAPIWrapper, playlistName} : an
               {friendsDisplay()}
             </Form.Group>
           : !playlistMade ? <Load></Load> : <div>
-            <div className="title color-white padding-top-sm">
+            <div className="title color-black padding-top-sm">
               Congrats! Your Playlist {playlistName} Has Been Made.
             </div>
-            <div className="title color-white">
+            <div className="title color-black">
               Check Your Spotify For Your New Playlist.
             </div>
             

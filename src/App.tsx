@@ -63,17 +63,14 @@ function App() {
     if (!userDataProvided()) {
       return (
         userSignedIn ? null : (<div>
-          <h2 className={userSignedIn ? "title subtitle pt-3 color-white" : "title subtitle pt-3 color-black"}>
-            Make A Spotify Playlists For Your Party
+          <h2 className={userSignedIn ? "title subtitle pt-3 color-black sub-header" : "title subtitle pt-3 color-black sub-header"}>
+            Put the power of the party in the palm of your hand.
           </h2>
-          <h2 className={userSignedIn ? "title subtitle pt-3 color-white" : "title subtitle pt-3 color-black"}>Easier Than Ever.</h2>
         </div>)
       );
     } else {
       return (
-        <h2 className="title subtitle pt-3 color-white">
-          Making playlist <span className="text-thicc">{playlistName}</span>
-        </h2>
+        null
       );
     }
   };
@@ -90,21 +87,23 @@ function App() {
     return (
     <div className={userSignedIn ? "top-padding" : "main-img"}>
       <div className="container">
-        <h1 className={userSignedIn ? "title pt-4 text-bg color-white" : "title pt-4 text-bg color-black"}>Partify</h1>
+        <h1 className={userSignedIn ? "title pt-4 text-bg color-white text-thicc" : "title pt-4 text-bg color-black"}>Partify</h1>
+        <div className={userSignedIn ? "form-container" : ""}>
         {createSubHeader()}
         <div className="center margin-top-md">
           {currentUser && userSignedIn ? (
-            <UserDisplay user={currentUser}></UserDisplay>
+            <UserDisplay user={currentUser} playlistName={playlistName}></UserDisplay>
           ) : (
             <Login></Login>
           )}
         </div>
-      </div>
-      {currentUser && userSignedIn ? (
+        {currentUser && userSignedIn ? (
         <div id="input" className="container">
           {createForm()}
         </div>
       ) : null}
+      </div>
+        </div>
       </div>
     )
   }

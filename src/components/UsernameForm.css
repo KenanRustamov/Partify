@@ -2,7 +2,7 @@
   height: 100px;
   width: 100px;
   border-radius: 50%;
-  border: 1px solid white;
+  border: 3px solid rgb(245, 159, 64);
 }
 
 .form-error {

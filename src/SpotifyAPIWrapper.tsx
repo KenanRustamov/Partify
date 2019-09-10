@@ -46,7 +46,7 @@ export default class SpotifyAPIWrapper {
   async getRecommendations(seedSongs: string[]) {
     const song_query = seedSongs.join(',');
 
-    let data = await fetch(`https://api.spotify.com/v1/recommendations?seed_tracks=${song_query}&market=US`, {
+    let data = await fetch(`https://api.spotify.com/v1/recommendations?seed_tracks=${song_query}&market=US&popularity=0.9&danceability=0.9`, {
       method: "GET", // *GET, POST, PUT, DELETE, etc.
       // mode: 'cors', // no-cors, cors, *same-origin
       // credentials: 'same-origin', // include, *same-origin, omit
