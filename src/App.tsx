@@ -110,6 +110,9 @@ function App() {
 
   return (
     <Router>
+      <head>
+        <link rel="shortcut icon" href="http://sstatic.net/stackoverflow/img/favicon.ico"/>
+      </head>
       <div className="App">
         <Switch>
             <Route path="/" exact component= {Home} />
