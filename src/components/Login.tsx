@@ -4,7 +4,7 @@ export default function Login() {
 
   const authEndPoint: string = "https://accounts.spotify.com/authorize?";
   const clientId: string = "acdd403ce33c48ea83e77b0f86a0d40f";
-  const redirectUri: string = "http://kenanrustamov.github.io/Partify/callback/";
+  const redirectUri: string = "https://kenanrustamov.github.io/Partify/callback/";
   const scopes: string[] = [
     "user-read-email, playlist-modify-public"
   ]
