@@ -1,0 +1,18 @@
+{
+  "files": {
+    "main.css": "/Partify/static/css/main.be3d1da5.chunk.css",
+    "main.js": "/Partify/static/js/main.1142b566.chunk.js",
+    "main.js.map": "/Partify/static/js/main.1142b566.chunk.js.map",
+    "runtime~main.js": "/Partify/static/js/runtime~main.4d582ee0.js",
+    "runtime~main.js.map": "/Partify/static/js/runtime~main.4d582ee0.js.map",
+    "static/js/2.7edd7b4c.chunk.js": "/Partify/static/js/2.7edd7b4c.chunk.js",
+    "static/js/2.7edd7b4c.chunk.js.map": "/Partify/static/js/2.7edd7b4c.chunk.js.map",
+    "index.html": "/Partify/index.html",
+    "precache-manifest.59ddf04076a96eb045951518e327ab64.js": "/Partify/precache-manifest.59ddf04076a96eb045951518e327ab64.js",
+    "service-worker.js": "/Partify/service-worker.js",
+    "static/css/main.be3d1da5.chunk.css.map": "/Partify/static/css/main.be3d1da5.chunk.css.map",
+    "static/media/index.css": "/Partify/static/media/background.123a62b6.jpg",
+    "static/media/elijahKajinic.jpeg": "/Partify/static/media/elijahKajinic.2eab274f.jpeg",
+    "static/media/kenanRustamov.jpg": "/Partify/static/media/kenanRustamov.31e40586.jpg"
+  }
+}
