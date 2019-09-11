@@ -19,7 +19,7 @@ const InputForm = ({handleUserData}:any) => {
   return (
     <Form onSubmit={handleSubmit}>
       <div className="row justify-content-center">
-        <Form.Group className="padding-top-bg color-black col-md-8">
+        <Form.Group className="padding-top-md color-black col-md-8">
           <FormLabel className="color-black">Enter Playlist Name:</FormLabel>
           <Form.Control type="text" placeholder="Playlist Name" value={playlistName} onChange={(e:any) => setPlaylistName(e.target.value)} required/>
         </Form.Group>

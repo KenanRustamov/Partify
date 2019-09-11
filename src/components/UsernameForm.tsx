@@ -13,6 +13,8 @@ const UserNameForm = ({token, currentUser, spotifyAPIWrapper, playlistName} : an
   const [error, setError] = useState<string>('');
   const [creatingPlaylist, setCreatingPlaylist] = useState<boolean>(false);
   const [playlistMade, setPlaylistMade] = useState<boolean>(false);
+  const [playlistData, setPlaylistData] = useState<any>();
+  const [mood, setMood] = useState<string>('Party');
 
   const handleSubmit = async(e:any) => {
     e.preventDefault();
@@ -62,7 +64,7 @@ const UserNameForm = ({token, currentUser, spotifyAPIWrapper, playlistName} : an
       let img = !user.images.length ? defaultImage : user.images[0].url;
 
       display.push(
-        <div className="col-6 col-md-4 col-lg-3 center margin-top-sm" key={user.id}>
+        <div className="col-12 col-md-4 col-lg-3 center margin-top-sm" key={user.id}>
           <img src={img} className="profile-sm"></img>
           <h1 className="title text-sm margin-top-xs color-black">{user.display_name}</h1>
         </div>
@@ -95,8 +97,29 @@ const UserNameForm = ({token, currentUser, spotifyAPIWrapper, playlistName} : an
       await spotifyAPIWrapper.addUserSongs(username);
     }
     await spotifyAPIWrapper.addUserSongs(currentUser);
-    await spotifyAPIWrapper.createPlaylist(currentUser, playlistName);
+    setPlaylistData(await spotifyAPIWrapper.createPlaylist(currentUser, playlistName, mood));
     setPlaylistMade(true);
+  }
+
+  const showPlaylist = () => {
+    let playlist_link = playlistData.external_urls.spotify;
+    let playlist_image = playlistData.images[1] ? playlistData.images[1].url : null;
+    let playlist_name = playlistData.name;
+
+    return (
+      <div className="playlist">
+        <div className="pt-5"><img src={playlist_image} alt="Playlist Image"></img></div>
+        <a href={playlist_link} className="color-main main-hover text-thicc">{playlist_name}</a>
+      </div>
+    );
+  }
+
+  const setMode = (selectedMood: any) => {
+    setMood(selectedMood);
+  }
+
+  const makeAnother = (e: any) => {
+    window.location.reload();
   }
 
   return (
@@ -105,9 +128,15 @@ const UserNameForm = ({token, currentUser, spotifyAPIWrapper, playlistName} : an
         <div className="row justify-content-center">
           {!creatingPlaylist ? 
             <Form.Group className="padding-top-md color-black col-md-8">
-              {<Form.Label className="font-weight-lt color-black">Enter Your Friends</Form.Label>}
+              <Form.Label className="font-weight-lt color-black">Enter Your Friends</Form.Label>
               <Form.Control type="text" placeholder="Friend's Spotify Username" onChange={(e:any) => setFriend(e.target.value)} value={friend} />
               {getFormError()}
+              <Form.Label className="font-weight-lt color-black pt-4">Select Your Playlist Type</Form.Label>
+              <Form.Control as="select" onChange={(e:any) => setMode(e.target.value)}>
+                  <option>Party</option>
+                  <option>Chill</option>
+                  <option>Discover</option>
+                </Form.Control>
               <div className="row center">
                 <div className="col-md-6">
                   <Button type="submit" className="btn btn-primary btn-block margin-top-md">
@@ -123,11 +152,11 @@ const UserNameForm = ({token, currentUser, spotifyAPIWrapper, playlistName} : an
               {friendsDisplay()}
             </Form.Group>
           : !playlistMade ? <Load></Load> : <div>
-            <div className="title color-black padding-top-sm">
-              Congrats! Your Playlist {playlistName} Has Been Made.
-            </div>
             <div className="title color-black">
-              Check Your Spotify For Your New Playlist.
+              {showPlaylist()}
+              <Button className="btn btn-primary btn-block margin-top-md" onClick={(e: any) => makeAnother(e)}>
+                Create Another
+              </Button>
             </div>
             
           </div>}

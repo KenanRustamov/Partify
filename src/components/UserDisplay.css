@@ -1,20 +1,20 @@
 .profile {
-  height: 100px;
-  width: 100px;
+  height: 150px;
+  width: 150px;
   border-radius: 50%;
   border: 3px solid rgb(245, 159, 64);
 }
 
 @media (min-width: 450px) {
   .profile {
-    height: 150px;
-    width: 150px;
+    height: 200px;
+    width: 200px;
   }
 }
 
 .display-wrapper {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }

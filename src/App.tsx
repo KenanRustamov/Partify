@@ -13,7 +13,6 @@ import About from "./About"
 function App() {
   //window.location.replace("https://accounts.spotify.com/authorize?client_id=acdd403ce33c48ea83e77b0f86a0d40f&redirect_uri=http://localhost:3000/callback/&scope=user-read-private%20user-read-email&response_type=token&state=123")
   const [playlistName, setPlaylistName] = useState("");
-  const [username, setUsername] = useState("");
   const [token, setToken] = useState("");
   const [currentUser, setCurrentUser] = useState();
   const [spotifyAPIWrapper, setSpotifyAPIWrapper] = useState();
@@ -87,7 +86,7 @@ function App() {
     return (
     <div className={userSignedIn ? "top-padding" : "main-img"}>
       <div className="container">
-        <h1 className={userSignedIn ? "title pt-4 text-bg color-white text-thicc" : "title pt-4 text-bg color-black"}>Partify</h1>
+        {!userSignedIn ? <h1 className="title text-bg text-thicc">Partify</h1> : null}
         <div className={userSignedIn ? "form-container" : ""}>
         {createSubHeader()}
         <div className="center margin-top-md">

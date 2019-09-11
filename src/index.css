@@ -51,7 +51,13 @@ code {
 }
 
 .padding-top-bg {
-  padding-top: 4.5em;
+  padding-top: 2em;
+}
+
+@media (min-width: 450px) {
+  .padding-top-bg {
+    padding-top: 4.5em;
+  }
 }
 
 .margin-top-xs {
@@ -79,17 +85,11 @@ code {
 }
 
 .text-md {
-  font-size: 1.2em;
+  font-size: 0.8em;
 }
 
 .text-lg {
   font-size: 1.4em;
-}
-
-@media (min-width: 450px) {
-  .text-lg {
-    font-size: 2em;
-  }
 }
 
 .margin-left-sm {
@@ -97,9 +97,33 @@ code {
 }
 
 .title {
-  font-size: 2.6rem;
+  font-size: 2.0rem;
   font-weight: 100;
   text-align: center;
+}
+
+@media (min-width: 490px) {
+  .text-lg {
+    font-size: 2em;
+  }
+
+  .title {
+    font-size: 2.6em;
+  }
+}
+
+.playlist a:hover {
+  color: rgb(245, 159, 64)
+}
+
+.playlist img {
+  max-width: 250px;
+}
+
+@media (min-width: 450px) {
+  .playlist img {
+    max-width: 300px;
+  }
 }
 
 .text-thicc {
@@ -123,7 +147,13 @@ code {
 }
 
 .text-bg {
-  font-size: 5.8em;
+  font-size: 4em;
+}
+
+@media (min-width: 480px) {
+  .text-bg {
+    font-size: 5.8em;
+  }
 }
 
 .top-padding {
@@ -149,6 +179,12 @@ code {
 }
 
 .sub-header {
-  width: 45%;
+  width: 55%;
   margin: 0 auto;
+}
+
+@media (min-width: 480px) {
+  .sub-header {
+    width: 55;
+  }
 }

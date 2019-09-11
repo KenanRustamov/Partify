@@ -1,16 +1,39 @@
 .aboutWrapper {
     padding-top: 6rem;
-    padding-left: 4rem;
-    padding-right: 4rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
     padding-bottom: 4rem;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
 }
-.card-deck{
-    max-width: 70rem;
+
+@media (min-width: 450px) {
+    .aboutWrapper {
+        padding-left: 4rem;
+        padding-right: 4rem;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
 }
 
 .card-body :nth-child(2){
     color:gray;
+}
+
+.about-profile {
+    width: 100%;
+}
+
+.card-deck {
+    max-width: 70rem;
+  background: white;
+  padding: 10px;
+  border-radius: 20px;
+}
+  
+@media (min-width: 450px) {
+  .card-deck {
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+  }
 }
