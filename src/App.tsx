@@ -115,8 +115,8 @@ function App() {
       </head>
       <div className="App">
         <Switch>
-            <Route path="/" exact component= {Home} />
-            <Route path="/about" exact component = {About}/>
+            <Route path="/Partify/" exact component= {Home} />
+            <Route path="/Partify/about" exact component = {About}/>
         </Switch>
         {currentUser && userSignedIn ? 
           <Navigation /> : 
