@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "01c7bbc5192b56212432e3e4b834e310",
+    "revision": "a6ddced90dae97166f652ad8bbc0e105",
     "url": "/Partify/index.html"
   },
   {
-    "revision": "37a30541570d712fb422",
+    "revision": "5d9c346180eed6af7624",
     "url": "/Partify/static/css/main.be3d1da5.chunk.css"
   },
   {
@@ -12,8 +12,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/Partify/static/js/2.7edd7b4c.chunk.js"
   },
   {
-    "revision": "37a30541570d712fb422",
-    "url": "/Partify/static/js/main.f98393fb.chunk.js"
+    "revision": "5d9c346180eed6af7624",
+    "url": "/Partify/static/js/main.9504fbc1.chunk.js"
   },
   {
     "revision": "c666fbb95aa7089099f2",
