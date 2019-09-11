@@ -4,6 +4,7 @@ import Button from 'react-bootstrap/Button';
 import './UsernameForm.css';
 import defaultImage from '../img/default-user-profile.png';
 import Load from './Load';
+import Image from 'react-bootstrap/Image'
 
 const UserNameForm = ({token, currentUser, spotifyAPIWrapper, playlistName} : any) => {
 
@@ -108,8 +109,8 @@ const UserNameForm = ({token, currentUser, spotifyAPIWrapper, playlistName} : an
 
     return (
       <div className="playlist">
-        <div className="pt-5"><img src={playlist_image} alt="Playlist Image"></img></div>
-        <a href={playlist_link} className="color-main main-hover text-thicc">{playlist_name}</a>
+        <div className="mt-5 playlistImage"><Image src={playlist_image} rounded onClick = {() => {window.location.href = playlist_link}} alt="Playlist Image"></Image></div>
+        <a href={playlist_link} className="color-main main-hover text-thicc playlistText">{playlist_name}</a>
       </div>
     );
   }

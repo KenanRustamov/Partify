@@ -9,3 +9,46 @@
   position: absolute;
   color: red !important;
 }
+
+.playlistText {
+  transition: color .3s ease;
+  transition-property: color;
+  transition-duration: .3s;
+  transition-timing-function: ease;
+  transition-delay: 0s;
+}
+
+.playlistImage {
+  border: 3px solid white;
+  transition: border .3s ease;
+  transition-property: border;
+  transition-duration: .3s;
+  transition-timing-function: ease;
+  transition-delay: 0s;
+  text-decoration:none;
+  border-radius: .35rem!important;
+}
+
+.playlist:hover .playlistText{
+  color: #fee060 !important;
+  transition: color .3s ease;
+  transition-property: color;
+  transition-duration: .3s;
+  transition-timing-function: ease;
+  transition-delay: 0s;
+  text-decoration:none;
+}
+
+.playlist:hover .playlistImage {
+  border: 2px solid #fee060;
+  transition: border .3s ease;
+  transition-property: border;
+  transition-duration: .3s;
+  transition-timing-function: ease;
+  transition-delay: 0s;
+  text-decoration:none;
+}
+
+.playlist:hover {
+  cursor: pointer;
+}
