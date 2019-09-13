@@ -40,7 +40,7 @@
 }
 
 .playlist:hover .playlistImage {
-  border: 2px solid #fee060;
+  border: 3px solid #fee060;
   transition: border .3s ease;
   transition-property: border;
   transition-duration: .3s;
