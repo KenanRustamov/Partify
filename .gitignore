@@ -8,7 +8,7 @@
 # testing
 /coverage
 
-/components/LoginInfo.tsx
+src/components/LoginInfo.tsx
 
 # production
 /build
