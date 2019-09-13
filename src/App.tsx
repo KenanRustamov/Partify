@@ -11,7 +11,6 @@ import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import About from "./About"
 
 function App() {
-  //window.location.replace("https://accounts.spotify.com/authorize?client_id=acdd403ce33c48ea83e77b0f86a0d40f&redirect_uri=https://kenanrustamov.github.io/Partify/callback/&scope=user-read-private%20user-read-email&response_type=token&state=123")
   const [playlistName, setPlaylistName] = useState("");
   const [token, setToken] = useState("");
   const [currentUser, setCurrentUser] = useState();
