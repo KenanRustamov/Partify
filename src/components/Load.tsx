@@ -2,6 +2,7 @@ import React from "react";
 import "./Load.css";
 
 export default function Load() {
+  // Loader component for when the playlist is being created
   return (
     <div className="center padding-top-md">
       <div className="title">

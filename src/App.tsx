@@ -1,27 +1,27 @@
 import React, { useState, useEffect } from "react";
-import Navigation from "./components/Navigation";
 import "./App.css";
+import About from "./About"
 import InputForm from "./components/InputForm";
-import UsernameForm from "./components/UsernameForm";
-import "./App.css";
-import UserDisplay from "./components/UserDisplay";
 import Login from "./components/Login";
+import Navigation from "./components/Navigation";
+import UsernameForm from "./components/UsernameForm";
+import UserDisplay from "./components/UserDisplay";
 import SpotifyAPIWrapper from './SpotifyAPIWrapper';
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
-import About from "./About"
 
 function App() {
   const [playlistName, setPlaylistName] = useState("");
+  // State for the user token
   const [token, setToken] = useState("");
+  // State for current user who is signed in 
   const [currentUser, setCurrentUser] = useState();
   const [spotifyAPIWrapper, setSpotifyAPIWrapper] = useState();
   const [userSignedIn, setUserSignedIn] = useState(false);
 
+  // Function to get data from the current user
   const getUserData = async () => {
     let data = await fetch("https://api.spotify.com/v1/me", {
-      method: "GET", // *GET, POST, PUT, DELETE, etc.
-      // mode: 'cors', // no-cors, cors, *same-origin
-      // credentials: 'same-origin', // include, *same-origin, omit
+      method: "GET",
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json",
@@ -32,6 +32,7 @@ function App() {
     return data;
   };
 
+  // Checking to see if the user has an access token passed back from the url
   useEffect(() => {
     if (window.location.hash.includes("access_token")) {
       const unverifiedToken: any = window.location.href.match(
@@ -44,6 +45,7 @@ function App() {
     }
   }, []);
 
+  // If there is a token, set the currentUser
   useEffect(() => {
     if (token) {
       setSpotifyAPIWrapper(new SpotifyAPIWrapper(token));
@@ -107,7 +109,6 @@ function App() {
       </div>
     )
   }
-  
 
   return (
     <Router>

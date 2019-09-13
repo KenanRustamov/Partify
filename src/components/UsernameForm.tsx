@@ -8,10 +8,15 @@ import Image from 'react-bootstrap/Image'
 
 const UserNameForm = ({token, currentUser, spotifyAPIWrapper, playlistName} : any) => {
 
+  // State representing the friend's data
   const [friendList, setFriendList] = useState<string[]>([]);
   const [friend, setFriend] = useState<string>('');
   const [friendData, setFriendData] = useState<any>([]);
+
+  // State for incorrectly entering a username
   const [error, setError] = useState<string>('');
+
+  // States specifying the playslists
   const [creatingPlaylist, setCreatingPlaylist] = useState<boolean>(false);
   const [playlistMade, setPlaylistMade] = useState<boolean>(false);
   const [playlistData, setPlaylistData] = useState<any>();
@@ -23,6 +28,8 @@ const UserNameForm = ({token, currentUser, spotifyAPIWrapper, playlistName} : an
       setError('Please fill out input field');
       return;
     }
+
+    // Getting the data from the inputted user
     const data = await getUserData(friend);
     if (isUserValid(data)) {
       setFriendList(friendList.concat(friend));
@@ -31,6 +38,7 @@ const UserNameForm = ({token, currentUser, spotifyAPIWrapper, playlistName} : an
     }
   }
 
+  // Getting the data of the user
   const getUserData = async(user_id : any) => {
     let data = await fetch(`https://api.spotify.com/v1/users/${user_id}`, {
       method: 'GET',
@@ -44,6 +52,7 @@ const UserNameForm = ({token, currentUser, spotifyAPIWrapper, playlistName} : an
     return data;
   }
 
+  // Checking whether the user can be found or is already added
   const isUserValid = (userData : any) => {
     if ('error' in userData) {
       setError(userData.error.message);
@@ -60,6 +69,7 @@ const UserNameForm = ({token, currentUser, spotifyAPIWrapper, playlistName} : an
 
   const friendsDisplay = () => {
     const display: any[] = [];
+    // Looping through friends and displaing them in the UI
     for (const user of friendData) {
 
       let img = !user.images.length ? defaultImage : user.images[0].url;
@@ -80,6 +90,7 @@ const UserNameForm = ({token, currentUser, spotifyAPIWrapper, playlistName} : an
     )
   }
 
+  // Displaying error to user if user info could not be found
   const getFormError = () => {
     return (error ? 
     (<Form.Text className="text-muted form-error">
@@ -94,6 +105,7 @@ const UserNameForm = ({token, currentUser, spotifyAPIWrapper, playlistName} : an
   const createPlaylist = async(e: any) => {
     e.preventDefault();
     setCreatingPlaylist(true);
+    // Adding the songs for each user
     for (const username of friendList) {
       await spotifyAPIWrapper.addUserSongs(username);
     }
@@ -103,6 +115,7 @@ const UserNameForm = ({token, currentUser, spotifyAPIWrapper, playlistName} : an
   }
 
   const showPlaylist = () => {
+    // Displaying the playlist link to the user
     let playlist_link = playlistData.external_urls.spotify;
     let playlist_image = playlistData.images[1] ? playlistData.images[1].url : null;
     let playlist_name = playlistData.name;
@@ -119,6 +132,7 @@ const UserNameForm = ({token, currentUser, spotifyAPIWrapper, playlistName} : an
     setMood(selectedMood);
   }
 
+  // Resetting state to make another playlist
   const makeAnother = (e: any) => {
     window.location.reload();
   }

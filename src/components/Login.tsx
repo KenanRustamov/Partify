@@ -1,9 +1,13 @@
 import React from "react";
+import loginInfo from './LoginInfo';
 
 export default function Login() {
 
+  // Component that runs after user attempts to login
+  // Goes to specified callback
+
   const authEndPoint: string = "https://accounts.spotify.com/authorize?";
-  const clientId: string = "acdd403ce33c48ea83e77b0f86a0d40f";
+  const clientId: string = loginInfo;
   const redirectUri: string = "https://partify-us.com/";
   const scopes: string[] = [
     "user-read-email, playlist-modify-public"

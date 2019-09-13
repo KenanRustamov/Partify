@@ -4,6 +4,8 @@ import defaultImage from '../img/default-user-profile.png';
 
 const UserDisplay = ({user, playlistName} : any) => {
 
+  // Displaying the main image for the user
+
   let img = !user.images.length ? defaultImage : user.images[0].url;
   return (
     <div className="display-wrapper">

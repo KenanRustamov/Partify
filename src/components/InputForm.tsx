@@ -4,11 +4,12 @@ import Button from 'react-bootstrap/Button';
 import { FormLabel } from 'react-bootstrap';
 
 const InputForm = ({handleUserData}:any) => {
+  // Functionality for submitting a playlist name
 
   const [playlistName, setPlaylistName] = useState('');
   const [username, setUsername] = useState('');
-  const [displayPlayListForm, setDisplayPlaylistForm] = useState(true);
 
+  // Setting the playlist name
   const handleSubmit = (event: any) => {
     event.preventDefault();
     handleUserData({playlistName, username})

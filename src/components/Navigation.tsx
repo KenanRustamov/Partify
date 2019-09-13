@@ -6,6 +6,8 @@ import { Link } from 'react-router-dom'
 
 const Navigation = () => {
 
+  // Components that specifies the navigation at the top of the page
+
   return (
     <Navbar bg="light" expand="sm">
       <Link to = "/">
