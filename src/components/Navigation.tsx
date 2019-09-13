@@ -9,7 +9,7 @@ const Navigation = () => {
   return (
     <Navbar bg="light" expand="sm">
       <Link to = "/">
-        <Navbar.Brand className="brand" href="/" onClick={() => window.location.reload()}>Partify</Navbar.Brand>
+        <Navbar.Brand className="brand" href="/" onClick={() => window.location.href("https://www.partify-us.com/")}>Partify</Navbar.Brand>
       </Link>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
