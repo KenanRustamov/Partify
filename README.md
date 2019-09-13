@@ -15,6 +15,6 @@ The first screen asks for you to login which will take you to a spotify login pa
 
 ### Demonstration
 
-![Demo](https://recordit.co/rfRqF8XwMy)
+![Demo](http://g.recordit.co/rfRqF8XwMy.gif)
 
 
