@@ -15,6 +15,7 @@ function App() {
   const [token, setToken] = useState("");
   const [currentUser, setCurrentUser] = useState();
   const [spotifyAPIWrapper, setSpotifyAPIWrapper] = useState();
+  const [userSignedIn, setUserSignedIn] = useState(false);
 
   const getUserData = async () => {
     let data = await fetch("https://api.spotify.com/v1/me", {
@@ -38,6 +39,7 @@ function App() {
       );
       const access_token: string =
         unverifiedToken !== null ? unverifiedToken[1] : "";
+      setUserSignedIn(true);
       setToken(access_token);
     }
   }, []);
@@ -105,7 +107,7 @@ function App() {
       </div>
     )
   }
-  const userSignedIn = window.location.href.includes("access_token");
+  
 
   return (
     <Router>
