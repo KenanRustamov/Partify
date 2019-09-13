@@ -46,6 +46,9 @@
   padding: 17px 35px;
   margin-top: 20px;
   margin-bottom: 20px;
+  -webkit-appearance:none;
+  -moz-appearance:none;
+  appearance:none;
 }
 
 .buttonWrapper :hover {
